@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.youli.imgupload.mapper.ImgXmlMapper">
+    <select id="findAll" resultType="ImgsData">
+        select * from imgs
+    </select>
+
+    <insert id="add" parameterType="ImgsData">
+        insert into imgs (imgid, imgname, imgurl)
+        values (#{imgid},#{imgname},#{imgurl})
+    </insert>
+
+    <select id="findimg" parameterType="String" resultType="String">
+        select imgurl from imgs where imgname=#{imgname};
+    </select>
+
+</mapper>
